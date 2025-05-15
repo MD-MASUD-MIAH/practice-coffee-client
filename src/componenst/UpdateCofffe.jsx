@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const UpdateCofffe = () => {
@@ -11,6 +11,7 @@ const UpdateCofffe = () => {
 } = coffee
  
 
+const navigate = useNavigate()
 
 const handleupdate = (e)=>{
 
@@ -46,6 +47,7 @@ const handleupdate = (e)=>{
   draggable: true, 
   timer:1500 })
 
+  navigate('/')
     console.log('dataupdate',data);
     
   })

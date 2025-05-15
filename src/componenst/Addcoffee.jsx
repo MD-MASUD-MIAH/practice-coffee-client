@@ -1,8 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Addcoffee = () => {
-
+const navigate = useNavigate()
     const handleAdd =(e)=>{
 e.preventDefault()
 
@@ -33,6 +34,7 @@ e.preventDefault()
   timer:1500
 });
 
+navigate('/')
 frm.reset()
         console.log('after added data',data);
         

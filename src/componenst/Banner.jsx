@@ -4,7 +4,7 @@ import banr from '../assets/Rectangle.png';
 const Banner = () => {
   return (
      <div
-      className="h-[calc(100vh-100px)] md:min-h-screen  w-full bg-cover bg-center flex items-center justify-end text-white px-4"
+      className="md:min-h-screen py-30  w-full bg-cover bg-center flex items-center justify-end text-white px-4"
       style={{ backgroundImage: `url(${banr})` }}
     >
       <div className="">
@@ -16,7 +16,7 @@ const Banner = () => {
           It's coffee time – Sip & Savor – Relaxation in every sip! Get the nostalgia back!!<br />
           Your companion of every moment!!! Enjoy the beautiful moments and make them memorable.
         </p>
-        <button className="bg-[#E3B577] hover:bg-[#6F4E37] text-black font-semibold py-2 px-4 rounded transition duration-300">
+        <button className="bg-[#E3B577] hover:bg-[#6F4E37] text-white font-semibold py-2 px-4 rounded transition duration-300">
           Learn More
         </button>
       </div>

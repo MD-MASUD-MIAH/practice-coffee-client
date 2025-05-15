@@ -13,10 +13,10 @@ const CoffeeDeails = () => {
        
             
 
-            <div className='flex  justify-center items-center w-11/12 mx-auto md:px-10 py-10'>
+            <div className=' w-11/12 mx-auto md:px-10 py-10'>
 
 
-                 <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 bg-[#F5F4F1] shadow-md py-4 px-8 rounded-xl w-full ">
+                 <div className=" flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 bg-[#F5F4F1] shadow-md py-4 px-8 rounded-xl w-full ">
      
 
        <div>
@@ -32,7 +32,7 @@ const CoffeeDeails = () => {
 
 
       <div className="flex flex-col justify-between flex-grow">
-        <p><span className="font-semibold">Name:</span> {name}</p> 
+        <h1 className="text-2xl font-bold mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }} >{name}</h1>
 
 
         <p><span className="font-semibold">Taste

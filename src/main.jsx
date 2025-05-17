@@ -8,6 +8,10 @@ import Home from './componenst/Home.jsx'
 import Addcoffee from './componenst/Addcoffee.jsx'
 import CoffeeDeails from './componenst/CoffeeDeails.jsx'
 import UpdateCofffe from './componenst/UpdateCofffe.jsx'
+import Login from './componenst/Login.jsx'
+import SingUp from './componenst/SingUp.jsx'
+import AuthProvider from './componenst/context/AuthProvider.jsx'
+import AllUser from './componenst/AllUser.jsx'
 
 
 
@@ -32,7 +36,15 @@ const router =  createBrowserRouter([
           
              loader:({params})=>fetch(`http://localhost:5000/coffees/${params.id}`),
           
-          Component:UpdateCofffe}
+          Component:UpdateCofffe},
+
+          {path:'/login',Component:Login},
+          {path:'/singup',Component:SingUp},
+          {path:'/alluser',
+            
+            loader:()=>fetch('http://localhost:5000/user'),
+            
+            Component:AllUser}
     ]}
   ])
 createRoot(document.getElementById('root')).render(
@@ -40,6 +52,9 @@ createRoot(document.getElementById('root')).render(
 
   
   <StrictMode>
-   <RouterProvider router={router}></RouterProvider>
+ <AuthProvider>
+
+    <RouterProvider router={router}></RouterProvider>
+ </AuthProvider>
   </StrictMode>,
 )

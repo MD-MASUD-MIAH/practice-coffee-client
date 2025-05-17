@@ -2,8 +2,22 @@ import React from 'react';
 import logo from '../assets/logo.png'
 
 import nav from '../assets/hero.png'
-import { Link } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 const Navbar = () => {
+
+ const locat = useLocation() 
+ const navigate = useNavigate()
+ const isHome = locat.pathname === ('/')
+ const handlClick = ()=>{
+
+    if(isHome){
+
+        navigate('/login')
+    }else{
+        navigate('/')
+    }
+ }
+
     return (
         <div>
             <div className='flex  gap-5 justify-between items-center py-1 px-5'
@@ -24,7 +38,7 @@ const Navbar = () => {
              </div>
 
           <div className='flex justify-end items-center '>
-                <Link to='/' className='btn bg-[#E3B577] hover:bg-[#6F4E37] text-white'> Home</Link>
+                <button onClick={handlClick} className='btn bg-[#E3B577] hover:bg-[#6F4E37] text-white'>{isHome?'Login':'Home'}</button>
           </div>
             </div> 
             

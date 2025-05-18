@@ -136,7 +136,8 @@ const Addcoffee = () => {
 
           <div className="md:col-span-2 text-center">
             <button className="btn bg-[#D2B48C] hover:bg-[#caa57a] w-full text-black font-semibold">
-              Update Coffee Details
+              
+              Add Coffee
             </button>
           </div>
         </form>

@@ -2,6 +2,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from 'react-icons/hi';
 import foot from '../assets/Rectangle18.png' 
 import logo from '../assets/logo.png'
+import { Link } from 'react-router';
 const Footer = () => {
   return (
     <footer
@@ -56,6 +57,9 @@ const Footer = () => {
             <button className="btn btn-outline text-[#331A15] border-[#331A15] hover:bg-[#331A15] hover:text-white w-fit">
               Send Message
             </button>
+            <Link to={'/alluser'} className="btn btn-outline text-[#331A15] border-[#331A15] hover:bg-[#331A15] hover:text-white w-fit">
+              User List
+            </Link>
           </form>
         </div>
       </div>

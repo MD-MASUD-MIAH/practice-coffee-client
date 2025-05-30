@@ -19,7 +19,7 @@ const AllUser = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://y-rouge-mu-18.vercel.app/user/${id}`, {
+        fetch(`http://localhost:5000/user/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

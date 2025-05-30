@@ -1,7 +1,11 @@
+import { use } from "react";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContex } from "./context/AuthContex";
 
 const Addcoffee = () => {
+
+  const {user} = use(AuthContex)
   const navigate = useNavigate();
   const handleAdd = (e) => {
     e.preventDefault();
@@ -12,7 +16,7 @@ const Addcoffee = () => {
 
     console.log(newCoffee);
 
-    fetch("https://y-rouge-mu-18.vercel.app/coffees", {
+    fetch("http://localhost:5000/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -122,6 +126,31 @@ const Addcoffee = () => {
             />
           </div>
 
+
+         <div>
+            <label className="block mb-2 text-sm font-semibold text-gray-700">
+              Email
+            </label>
+            <input
+              name="email"
+              type="email"
+              defaultValue={user.email}
+              className="input input-bordered w-full"
+            />
+          </div>
+
+            <div>
+            <label className="block mb-2 text-sm font-semibold text-gray-700">
+              Name
+            </label>
+            <input
+              name="Username"
+              type="text"
+              defaultValue={user.displayName
+}
+              className="input input-bordered w-full"
+            />
+          </div>
           <div className="md:col-span-2">
             <label className="block mb-2 text-sm font-semibold text-gray-700">
               Photo
@@ -136,7 +165,6 @@ const Addcoffee = () => {
 
           <div className="md:col-span-2 text-center">
             <button className="btn bg-[#D2B48C] hover:bg-[#caa57a] w-full text-black font-semibold">
-              
               Add Coffee
             </button>
           </div>

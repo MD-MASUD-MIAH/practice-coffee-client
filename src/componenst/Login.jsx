@@ -2,6 +2,7 @@ import { use } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContex } from "./context/AuthContex";
+import Google from "./Google";
 const Login = () => {
   const { handlSing } = use(AuthContex);
 
@@ -23,7 +24,7 @@ const Login = () => {
 
         console.log(res.user);
 
-        return fetch("https://y-rouge-mu-18.vercel.app/user", {
+        return fetch("http://localhost:5000/user", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -94,6 +95,10 @@ const Login = () => {
                 </Link>
               </p>
             </form>
+            <div className="divider text-0">OR</div>
+            <div className="  flex items-center justify-center">
+              <Google></Google>
+            </div>
           </div>
         </div>
       </div>

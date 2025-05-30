@@ -2,8 +2,9 @@ import { use } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContex } from "./context/AuthContex";
+import Google from "./Google";
 const SingUp = () => {
-  const { handleingup } = use(AuthContex);
+  const { handleingup,update,setUser,user } = use(AuthContex);
 
   const handleSingup = (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ const SingUp = () => {
     const frData = new FormData(fmrs);
     const newUser = Object.fromEntries(frData.entries());
 
-    const { email, password, ...restDAta } = newUser;
+    const { email, password,name,photo, ...restDAta } = newUser;
 
     console.log(email, password, restDAta);
 
@@ -21,14 +22,27 @@ const SingUp = () => {
       .then((res) => {
         console.log(res.user);
 
+
+  update({displayName:name,photoURL:photo}).then(()=>{
+setUser({...user,displayName:name,photoURL:photo})
+
+  }).catch(error=>{
+
+    setUser(user)
+    console.log(error.message);
+    
+  })
+
         const userProfile = {
+          name,
+          photo,
           email,
           ...restDAta,
           creationTime: res.user?.metadata?.creationTime,
           lastSignInTime: res.user?.metadata?.lastSignInTime,
         };
 
-        fetch("https://y-rouge-mu-18.vercel.app/user", {
+        fetch("http://localhost:5000/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -138,6 +152,11 @@ const SingUp = () => {
                 </Link>
               </p>
             </form>
+
+            <div className="divider text-0">OR</div>
+            <div className="  flex items-center justify-center">
+              <Google></Google>
+            </div>
           </div>
         </div>
       </div>

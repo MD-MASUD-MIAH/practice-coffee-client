@@ -11,6 +11,7 @@ import UpdateCofffe from "./componenst/UpdateCofffe.jsx";
 import AuthProvider from "./componenst/context/AuthProvider.jsx";
 import "./index.css";
 import Mainlaout from "./layout/Mainlaout.jsx";
+import MyCoffee from "./componenst/MyCoffee.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       {
         index: true,
 
-        loader: () => fetch("https://y-rouge-mu-18.vercel.app/coffees"),
+        loader: () => fetch("http://localhost:5000/coffees"),
         Component: Home,
       },
       { path: "/addcoffee", Component: Addcoffee },
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         path: "/details/:id",
 
         loader: ({ params }) =>
-          fetch(`https://y-rouge-mu-18.vercel.app/coffees/${params.id}`),
+          fetch(`http://localhost:5000/coffees/${params.id}`),
         Component: CoffeeDeails,
       },
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
 
         loader: ({ params }) =>
-          fetch(`https://y-rouge-mu-18.vercel.app/coffees/${params.id}`),
+          fetch(`http://localhost:5000/coffees/${params.id}`),
 
         Component: UpdateCofffe,
       },
@@ -46,10 +47,15 @@ const router = createBrowserRouter([
       {
         path: "/alluser",
 
-        loader: () => fetch("https://y-rouge-mu-18.vercel.app/user"),
+        loader: () => fetch("http://localhost:5000/user"),
 
         Component: AllUser,
       },
+      {path:'/add-coffee/:email',
+        
+        loader:({params})=>fetch(`http://localhost:5000/add-coffee/${params.email}`),
+        
+        Component:MyCoffee}
     ],
   },
 ]);
